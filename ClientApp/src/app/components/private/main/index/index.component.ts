@@ -7,12 +7,12 @@ import { Component, Inject } from '@angular/core';
 })
 export class IndexComponent {
   public accounts: Account[] = [];
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Account[]>(baseUrl + 'account/get').subscribe(result => {
-      this.accounts = result;
-      console.log(result);
-    }, error => console.error(error));
-  }
+  // constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  //   http.get<Account[]>(baseUrl + 'account/get').subscribe(result => {
+  //     this.accounts = result;
+  //     console.log(result);
+  //   }, error => console.error(error));
+  // }
 }
 
 interface Account {

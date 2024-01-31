@@ -3,11 +3,12 @@ var KTComponents = {
 		KTApp.init(), KTDrawer.init(), KTMenu.init(), KTScroll.init(), KTSticky.init(), KTSwapper.init(), KTToggle.init(), KTScrolltop.init(), KTDialer.init(), KTImageInput.init(), KTPasswordMeter.init()
 	}
 };
-"loading" === document.readyState ? document.addEventListener("DOMContentLoaded", (function() {
-	KTComponents.init()
-})) : KTComponents.init(), window.addEventListener("load", (function() {
-	KTApp.hidePageLoading()
-})), "undefined" != typeof module && void 0 !== module.exports && (window.KTComponents = module.exports = KTComponents);
+document.addEventListener("DOMContentLoaded", (function() {
+	setTimeout(function(){
+		KTComponents.init()
+	}, 200);
+})), 
+"undefined" != typeof module && void 0 !== module.exports && (window.KTComponents = module.exports = KTComponents);
 var KTApp = function() {
 	var e = !1,
 		t = !1,
@@ -53,6 +54,7 @@ var KTApp = function() {
 			if (!e) return;
 			const t = {};
 			e.getAttributeNames().forEach((function(n) {
+				
 				if (/^data-tns-.*/g.test(n)) {
 					let r = n.replace("data-tns-", "").toLowerCase().replace(/(?:[\s-])\w/g, (function(e) {
 						return e.replace("-", "").toUpperCase()
@@ -108,6 +110,7 @@ var KTApp = function() {
 						e.isConfirmed && t.remove()
 					})) : t.remove()
 				})), (a = Array.prototype.slice.call(document.querySelectorAll("[data-bs-stacked-modal]"))) && a.length > 0 && a.forEach((e => {
+					
 					"1" !== e.getAttribute("data-kt-initialized") && (e.setAttribute("data-kt-initialized", "1"), e.addEventListener("click", (function(e) {
 						e.preventDefault();
 						const t = document.querySelector(this.getAttribute("data-bs-stacked-modal"));
@@ -202,6 +205,7 @@ var KTApp = function() {
 					if ("undefined" == typeof tns) return;
 					const e = Array.prototype.slice.call(document.querySelectorAll('[data-tns="true"]'), 0);
 					(e || 0 !== e.length) && e.forEach((function(e) {
+						
 						"1" !== e.getAttribute("data-kt-initialized") && (o(e), KTUtil.data(e).set("tns", tns), e.setAttribute("data-kt-initialized", "1"))
 					}))
 				}(), e = !0
@@ -276,12 +280,15 @@ var KTCookie = {
 			path: "/"
 		}, n)).expires instanceof Date && (n.expires = n.expires.toUTCString());
 		var i = encodeURIComponent(e) + "=" + encodeURIComponent(t);
-		for (var r in n)
+		for (var r in n){
+			
 			if (!1 !== n.hasOwnProperty(r)) {
 				i += "; " + r;
 				var o = n[r];
 				!0 !== o && (i += "=" + o)
 			} document.cookie = i
+		}
+			
 	},
 	remove: function(e) {
 		this.set(e, "", {
@@ -365,8 +372,13 @@ KTDialer.getInstance = function(e) {
 	return null !== e && KTUtil.data(e).has("dialer") ? KTUtil.data(e).get("dialer") : null
 }, KTDialer.createInstances = function(e = '[data-kt-dialer="true"]') {
 	var t = document.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTDialer(t[n])
+	if (t && t.length > 0){
+		for (var n = 0, i = t.length; n < i; n++) {
+			
+			new KTDialer(t[n])
+		}
+	}
+		
 }, KTDialer.init = function() {
 	KTDialer.createInstances()
 }, "undefined" != typeof module && void 0 !== module.exports && (module.exports = KTDialer);
@@ -467,6 +479,7 @@ KTDrawer.getInstance = function(e) {
 	var n = document.querySelectorAll(t);
 	if (n && n.length > 0)
 		for (var i = 0, r = n.length; i < r; i++) {
+			
 			var o = n[i],
 				a = KTDrawer.getInstance(o);
 			a && (e ? o !== e && a.hide() : a.hide())
@@ -475,13 +488,18 @@ KTDrawer.getInstance = function(e) {
 	var t = document.querySelectorAll(e);
 	if (t && t.length > 0)
 		for (var n = 0, i = t.length; n < i; n++) {
+			
 			var r = KTDrawer.getInstance(t[n]);
 			r && r.update()
 		}
 }, KTDrawer.createInstances = function(e = '[data-kt-drawer="true"]') {
 	var t = document.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTDrawer(t[n])
+	if (t && t.length > 0) {
+		for (var n = 0, i = t.length; n < i; n++){ 
+			
+			new KTDrawer(t[n])
+		}
+	}
 }, KTDrawer.handleShow = function() {
 	KTUtil.on(document.body, '[data-kt-drawer-show="true"][data-kt-drawer-target]', "click", (function(e) {
 		e.preventDefault();
@@ -493,8 +511,12 @@ KTDrawer.getInstance = function(e) {
 		if ("Escape" === e.key) {
 			if (!(e.ctrlKey || e.altKey || e.shiftKey)) {
 				var t, n = document.querySelectorAll('.drawer-on[data-kt-drawer="true"]:not([data-kt-drawer-escape="false"])');
-				if (n && n.length > 0)
-					for (var i = 0, r = n.length; i < r; i++)(t = KTDrawer.getInstance(n[i])).isShown() && t.hide()
+				if (n && n.length > 0){
+					for (var i = 0, r = n.length; i < r; i++){
+						
+						(t = KTDrawer.getInstance(n[i])).isShown() && t.hide()
+					}
+				}
 			}
 		}
 	}))
@@ -512,6 +534,7 @@ KTDrawer.getInstance = function(e) {
 			var e = document.querySelectorAll('[data-kt-drawer="true"]');
 			if (e && e.length > 0)
 				for (var t = 0, n = e.length; t < n; t++) {
+					
 					var i = KTDrawer.getInstance(e[t]);
 					i && i.update()
 				}
@@ -537,11 +560,13 @@ var KTEventHandler = function() {
 			return function(t, n, i) {
 				var r, o = !0;
 				if (!0 === KTUtil.data(t).has(n))
-					for (var a, l = KTUtil.data(t).get(n), s = 0; s < l.length; s++)
+					for (var a, l = KTUtil.data(t).get(n), s = 0; s < l.length; s++){
+						
 						if (a = l[s], e[n] && e[n][a]) {
 							var u = e[n][a];
 							u.name === n && (1 == u.one ? 0 == u.fired && (e[n][a].fired = !0, r = u.callback.call(this, i)) : r = u.callback.call(this, i), !1 === r && (o = !1))
 						} return o
+					}
 			}(t, n, i)
 		},
 		on: function(e, n, i) {
@@ -557,7 +582,10 @@ var KTEventHandler = function() {
 			}(t, n, i)
 		},
 		debug: function() {
-			for (var t in e) e.hasOwnProperty(t) && console.log(t)
+			for (var t in e){
+				
+				e.hasOwnProperty(t) && console.log(t)
+			}
 		}
 	}
 }();
@@ -660,8 +688,12 @@ KTImageInput.getInstance = function(e) {
 	return null !== e && KTUtil.data(e).has("image-input") ? KTUtil.data(e).get("image-input") : null
 }, KTImageInput.createInstances = function(e = "[data-kt-image-input]") {
 	var t = document.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTImageInput(t[n])
+	if (t && t.length > 0){
+		for (var n = 0, i = t.length; n < i; n++) { 
+			
+			new KTImageInput(t[n]) 
+		}
+	}
 }, KTImageInput.init = function() {
 	KTImageInput.createInstances()
 }, "undefined" != typeof module && void 0 !== module.exports && (module.exports = KTImageInput);
@@ -699,8 +731,12 @@ var KTMenuHandlersInitialized = !1,
 				},
 				u = function() {
 					var e = n.element.querySelectorAll(".menu-item[data-kt-menu-trigger]");
-					if (e && e.length > 0)
-						for (var t = 0, i = e.length; t < i; t++) s(e[t])
+					if (e && e.length > 0){
+						for (var t = 0, i = e.length; t < i; t++){
+							
+							s(e[t]) 
+						}
+					}
 				},
 				d = function() {
 					var e = document.querySelector('[data-kt-menu-target="#' + n.element.getAttribute("id") + '"]');
@@ -826,8 +862,13 @@ var KTMenuHandlersInitialized = !1,
 				},
 				I = function(e) {
 					var t, i = KTUtil.findAll(n.element, ".show[data-kt-menu-trigger]");
-					if (i && i.length > 0)
-						for (var r = 0, o = i.length; r < o; r++) t = i[r], "accordion" === v(t) && t !== e && !1 === e.contains(t) && !1 === t.contains(e) && x(t)
+					if (i && i.length > 0){
+						for (var r = 0, o = i.length; r < o; r++){
+							
+							t = i[r], "accordion" === v(t) && t !== e && !1 === e.contains(t) && !1 === t.contains(e) && x(t)
+						}
+						 
+					}
 				},
 				L = function(e, t) {
 					var n, i = null;
@@ -848,8 +889,12 @@ var KTMenuHandlersInitialized = !1,
 				return function(e, t) {
 					var n = T(e),
 						i = k(n);
-					if (null !== n && "dropdown" === v(n) && (l(n), i.length > 0))
-						for (var r = 0, o = i.length; r < o; r++) null !== i[r] && "dropdown" === v(i[r]) && l(tems[r])
+					if (null !== n && "dropdown" === v(n) && (l(n), i.length > 0)){
+						for (var r = 0, o = i.length; r < o; r++) {
+							
+							null !== i[r] && "dropdown" === v(i[r]) && l(tems[r])
+						}
+					}
 				}(e)
 			}, n.mouseover = function(e, t) {
 				return function(e, t) {
@@ -892,6 +937,7 @@ var KTMenuHandlersInitialized = !1,
 							a = [].slice.call(n.element.querySelectorAll(".menu-item.here, .menu-item.show"));
 						if ("accordion" === v(t) ? A(t) : t.classList.add("here"), i && i.length > 0)
 							for (var l = 0, s = i.length; l < s; l++) {
+								
 								var u = i[l];
 								"accordion" === v(u) ? A(u) : u.classList.add("here")
 							}
@@ -965,6 +1011,7 @@ KTMenu.getInstance = function(e) {
 	var t = document.querySelectorAll(".show.menu-dropdown[data-kt-menu-trigger]");
 	if (t && t.length > 0)
 		for (var n = 0, i = t.length; n < i; n++) {
+			
 			var r = t[n],
 				o = KTMenu.getInstance(r);
 			o && "dropdown" === o.getItemSubType(r) && (e ? !1 === o.getItemSubElement(r).contains(e) && !1 === r.contains(e) && r !== e && o.hide(r) : o.hide(r))
@@ -973,6 +1020,7 @@ KTMenu.getInstance = function(e) {
 	var e = document.querySelectorAll(".show.menu-dropdown[data-kt-menu-trigger]");
 	if (e && e.length > 0)
 		for (var t = 0, n = e.length; t < n; t++) {
+			
 			var i = e[t];
 			KTUtil.data(i).has("popper") && KTUtil.data(i).get("popper").forceUpdate()
 		}
@@ -980,12 +1028,14 @@ KTMenu.getInstance = function(e) {
 	document.addEventListener("click", (function(e) {
 		var t, n, i, r = document.querySelectorAll('.show.menu-dropdown[data-kt-menu-trigger]:not([data-kt-menu-static="true"])');
 		if (r && r.length > 0)
-			for (var o = 0, a = r.length; o < a; o++)
+			for (var o = 0, a = r.length; o < a; o++){
+				
 				if (t = r[o], (i = KTMenu.getInstance(t)) && "dropdown" === i.getItemSubType(t)) {
 					if (i.getElement(), n = i.getItemSubElement(t), t === e.target || t.contains(e.target)) continue;
 					if (n === e.target || n.contains(e.target)) continue;
 					i.hide(t)
 				}
+			}
 	})), KTUtil.on(document.body, '.menu-item[data-kt-menu-trigger] > .menu-link, [data-kt-menu-trigger]:not(.menu-item):not([data-kt-menu-trigger="auto"])', "click", (function(e) {
 		var t = KTMenu.getInstance(this);
 		if (null !== t) return t.click(this, e)
@@ -1005,14 +1055,19 @@ KTMenu.getInstance = function(e) {
 		var e;
 		KTUtil.throttle(undefined, (function() {
 			var t = document.querySelectorAll('[data-kt-menu="true"]');
-			if (t && t.length > 0)
-				for (var n = 0, i = t.length; n < i; n++)(e = KTMenu.getInstance(t[n])) && e.update()
+			if (t && t.length > 0){
+				for (var n = 0, i = t.length; n < i; n++) {
+					
+					(e = KTMenu.getInstance(t[n])) && e.update()
+				}
+			}
 		}), 200)
 	}))
 }, KTMenu.updateByLinkAttribute = function(e, t = "href") {
 	var n = document.querySelectorAll('[data-kt-menu="true"]');
 	if (n && n.length > 0)
 		for (var i = 0, r = n.length; i < r; i++) {
+			
 			var o = KTMenu.getInstance(n[i]);
 			if (o) {
 				var a = o.getLinkByAttribute(e, t);
@@ -1021,8 +1076,12 @@ KTMenu.getInstance = function(e) {
 		}
 }, KTMenu.createInstances = function(e = '[data-kt-menu="true"]') {
 	var t = document.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTMenu(t[n])
+	if (t && t.length > 0) {
+		for (var n = 0, i = t.length; n < i; n++){
+			
+			new KTMenu(t[n])
+		}
+	}
 }, KTMenu.init = function() {
 	KTMenu.createInstances(), !1 === KTMenuHandlersInitialized && (KTMenu.initHandlers(), KTMenuHandlersInitialized = !0)
 }, "undefined" != typeof module && void 0 !== module.exports && (module.exports = KTMenu);
@@ -1104,8 +1163,12 @@ KTPasswordMeter.getInstance = function(e) {
 	return null !== e && KTUtil.data(e).has("password-meter") ? KTUtil.data(e).get("password-meter") : null
 }, KTPasswordMeter.createInstances = function(e = "[data-kt-password-meter]") {
 	var t = document.body.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTPasswordMeter(t[n])
+	if (t && t.length > 0){
+		for (var n = 0, i = t.length; n < i; n++) {
+			
+			new KTPasswordMeter(t[n])
+		}
+	}
 }, KTPasswordMeter.init = function() {
 	KTPasswordMeter.createInstances()
 }, "undefined" != typeof module && void 0 !== module.exports && (module.exports = KTPasswordMeter);
@@ -1164,9 +1227,15 @@ var KTScrollHandlersInitialized = !1,
 						r = f("wrappers"),
 						o = f("offset");
 					if ((t -= m(n.element), null !== i) && ((e = document.querySelectorAll(i)) && e.length > 0))
-						for (var a = 0, l = e.length; a < l; a++) !1 !== KTUtil.visible(e[a]) && (t -= c(e[a]));
+						for (var a = 0, l = e.length; a < l; a++) {
+							
+							!1 !== KTUtil.visible(e[a]) && (t -= c(e[a]));
+						}
 					if (null !== r && ((e = document.querySelectorAll(r)) && e.length > 0))
-						for (a = 0, l = e.length; a < l; a++) !1 !== KTUtil.visible(e[a]) && (t -= m(e[a]));
+						for (a = 0, l = e.length; a < l; a++) {
+							
+							!1 !== KTUtil.visible(e[a]) && (t -= m(e[a]));
+						}
 					return null !== o && "object" != typeof o && (t -= parseInt(o)), String(t) + "px"
 				},
 				c = function(e) {
@@ -1204,14 +1273,20 @@ KTScroll.getInstance = function(e) {
 	return null !== e && KTUtil.data(e).has("scroll") ? KTUtil.data(e).get("scroll") : null
 }, KTScroll.createInstances = function(e = '[data-kt-scroll="true"]') {
 	var t = document.body.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTScroll(t[n])
+	if (t && t.length > 0){
+		for (var n = 0, i = t.length; n < i; n++) {
+			
+			new KTScroll(t[n])
+		}
+		
+	}
 }, KTScroll.handleResize = function() {
 	window.addEventListener("resize", (function() {
 		KTUtil.throttle(undefined, (function() {
 			var e = document.body.querySelectorAll('[data-kt-scroll="true"]');
 			if (e && e.length > 0)
 				for (var t = 0, n = e.length; t < n; t++) {
+					
 					var i = KTScroll.getInstance(e[t]);
 					i && i.update()
 				}
@@ -1272,8 +1347,12 @@ KTScrolltop.getInstance = function(e) {
 	return e && KTUtil.data(e).has("scrolltop") ? KTUtil.data(e).get("scrolltop") : null
 }, KTScrolltop.createInstances = function(e = '[data-kt-scrolltop="true"]') {
 	var t = document.body.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTScrolltop(t[n])
+	if (t && t.length > 0){
+		for (var n = 0, i = t.length; n < i; n++) {
+			
+			new KTScrolltop(t[n])}
+
+	}
 }, KTScrolltop.init = function() {
 	KTScrolltop.createInstances()
 }, "undefined" != typeof module && void 0 !== module.exports && (module.exports = KTScrolltop);
@@ -1409,9 +1488,12 @@ var KTStepper = function(e, t) {
 				}, n.previousListener = function(e) {
 					e.preventDefault(), KTEventHandler.trigger(n.element, "kt.stepper.previous", n)
 				}, n.stepListener = function(e) {
-					if (e.preventDefault(), n.steps && n.steps.length > 0)
-						for (var t = 0, i = n.steps.length; t < i; t++)
+					if (e.preventDefault(), n.steps && n.steps.length > 0){
+						for (var t = 0, i = n.steps.length; t < i; t++){
+							
 							if (n.steps[t] === this) return n.clickedStepIndex = t + 1, void KTEventHandler.trigger(n.element, "kt.stepper.click", n)
+						}
+					}
 				}, KTUtil.addEvent(n.btnNext, "click", n.nextListener), KTUtil.addEvent(n.btnPrevious, "click", n.previousListener), n.stepListenerId = KTUtil.on(n.element, '[data-kt-stepper-action="step"]', "click", n.stepListener), KTUtil.data(n.element).set("stepper", n)
 			},
 			o = function(e) {
@@ -1423,6 +1505,7 @@ var KTStepper = function(e, t) {
 				var t = KTUtil.findAll(n.element, '[data-kt-stepper-element="nav"], [data-kt-stepper-element="content"], [data-kt-stepper-element="info"]');
 				if (t && t.length > 0)
 					for (var i = 0, r = t.length; i < r; i++) {
+						
 						var o = t[i],
 							a = KTUtil.index(o) + 1;
 						if (KTUtil.removeClass(o, "current"), KTUtil.removeClass(o, "completed"), KTUtil.removeClass(o, "pending"), a == n.currentStepIndex) {
@@ -1558,8 +1641,12 @@ var KTStickyHandlersInitialized = !1,
 						} else KTUtil.css(n.element, "left", i);
 					if (null !== r && KTUtil.css(n.element, "right", r), null !== l) {
 						var g = document.querySelectorAll(l);
-						if (g && g.length > 0)
-							for (var v = 0, T = g.length; v < T; v++) KTUtil.css(g[v], "padding-top", String(c) + "px")
+						if (g && g.length > 0){
+							for (var v = 0, T = g.length; v < T; v++) {
+								
+								KTUtil.css(g[v], "padding-top", String(c) + "px")}
+
+						}
 					}
 				},
 				l = function() {
@@ -1568,8 +1655,12 @@ var KTStickyHandlersInitialized = !1,
 						t = u("class");
 					if (null !== t && KTUtil.removeClass(n.element, t), null !== e) {
 						var i = document.querySelectorAll(e);
-						if (i && i.length > 0)
-							for (var r = 0, o = i.length; r < o; r++) KTUtil.css(i[r], "padding-top", "")
+						if (i && i.length > 0){
+							for (var r = 0, o = i.length; r < o; r++) {
+								
+								KTUtil.css(i[r], "padding-top", "")}
+
+						}
 					}
 				},
 				s = function() {
@@ -1604,14 +1695,20 @@ KTSticky.getInstance = function(e) {
 	return null !== e && KTUtil.data(e).has("sticky") ? KTUtil.data(e).get("sticky") : null
 }, KTSticky.createInstances = function(e = '[data-kt-sticky="true"]') {
 	var t = document.body.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTSticky(t[n])
+	if (t && t.length > 0){
+		for (var n = 0, i = t.length; n < i; n++){
+			
+			new KTSticky(t[n])
+		}
+
+	}
 }, KTSticky.handleResize = function() {
 	window.addEventListener("resize", (function() {
 		KTUtil.throttle(undefined, (function() {
 			var e = document.body.querySelectorAll('[data-kt-sticky="true"]');
 			if (e && e.length > 0)
 				for (var t = 0, n = e.length; t < n; t++) {
+					
 					var i = KTSticky.getInstance(e[t]);
 					i && i.update()
 				}
@@ -1664,14 +1761,20 @@ KTSwapper.getInstance = function(e) {
 	return null !== e && KTUtil.data(e).has("swapper") ? KTUtil.data(e).get("swapper") : null
 }, KTSwapper.createInstances = function(e = '[data-kt-swapper="true"]') {
 	var t = document.querySelectorAll(e);
-	if (t && t.length > 0)
-		for (var n = 0, i = t.length; n < i; n++) new KTSwapper(t[n])
+	if (t && t.length > 0){
+		for (var n = 0, i = t.length; n < i; n++) { 
+			
+			new KTSwapper(t[n])
+		}
+
+	}
 }, KTSwapper.handleResize = function() {
 	window.addEventListener("resize", (function() {
 		KTUtil.throttle(undefined, (function() {
 			var e = document.querySelectorAll('[data-kt-swapper="true"]');
 			if (e && e.length > 0)
 				for (var t = 0, n = e.length; t < n; t++) {
+					
 					var i = KTSwapper.getInstance(e[t]);
 					i && i.update()
 				}
@@ -1733,8 +1836,13 @@ KTToggle.getInstance = function(e) {
 		return null !== e && KTUtil.data(e).has("toggle") ? KTUtil.data(e).get("toggle") : null
 	}, KTToggle.createInstances = function(e = "[data-kt-toggle]") {
 		var t = document.body.querySelectorAll(e);
-		if (t && t.length > 0)
-			for (var n = 0, i = t.length; n < i; n++) new KTToggle(t[n])
+		if (t && t.length > 0){
+			for (var n = 0, i = t.length; n < i; n++) {
+				
+				new KTToggle(t[n])
+			}
+
+		}
 	}, KTToggle.init = function() {
 		KTToggle.createInstances()
 	}, "undefined" != typeof module && void 0 !== module.exports && (module.exports = KTToggle), Element.prototype.matches || (Element.prototype.matches = function(e) {
@@ -1758,11 +1866,15 @@ KTToggle.getInstance = function(e) {
 	,
 	function(e) {
 		for (var t = 0; t < e.length; t++) window[e[t]] && !("remove" in window[e[t]].prototype) && (window[e[t]].prototype.remove = function() {
+			
 			this.parentNode.removeChild(this)
 		})
 	}(["Element", "CharacterData", "DocumentType"]),
 	function() {
-		for (var e = 0, t = ["webkit", "moz"], n = 0; n < t.length && !window.requestAnimationFrame; ++n) window.requestAnimationFrame = window[t[n] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[t[n] + "CancelAnimationFrame"] || window[t[n] + "CancelRequestAnimationFrame"];
+		for (var e = 0, t = ["webkit", "moz"], n = 0; n < t.length && !window.requestAnimationFrame; ++n) {
+			
+			window.requestAnimationFrame = window[t[n] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[t[n] + "CancelAnimationFrame"] || window[t[n] + "CancelRequestAnimationFrame"];
+		} 
 		window.requestAnimationFrame || (window.requestAnimationFrame = function(t) {
 			var n = (new Date).getTime(),
 				i = Math.max(0, 16 - (n - e)),
@@ -1774,6 +1886,7 @@ KTToggle.getInstance = function(e) {
 			clearTimeout(e)
 		})
 	}(), [Element.prototype, Document.prototype, DocumentFragment.prototype].forEach((function(e) {
+		
 		e.hasOwnProperty("prepend") || Object.defineProperty(e, "prepend", {
 			configurable: !0,
 			enumerable: !0,
@@ -1782,13 +1895,17 @@ KTToggle.getInstance = function(e) {
 				var e = Array.prototype.slice.call(arguments),
 					t = document.createDocumentFragment();
 				e.forEach((function(e) {
+					
 					var n = e instanceof Node;
 					t.appendChild(n ? e : document.createTextNode(String(e)))
 				})), this.insertBefore(t, this.firstChild)
 			}
 		})
 	})), null == Element.prototype.getAttributeNames && (Element.prototype.getAttributeNames = function() {
-		for (var e = this.attributes, t = e.length, n = new Array(t), i = 0; i < t; i++) n[i] = e[i].name;
+		for (var e = this.attributes, t = e.length, n = new Array(t), i = 0; i < t; i++){
+			
+			n[i] = e[i].name;
+		} 
 		return n
 	}), window.KTUtilElementDataStore = {}, window.KTUtilElementDataStoreID = 0, window.KTUtilDelegatedEventHandlers = {};
 var KTUtil = function() {
@@ -1797,7 +1914,10 @@ var KTUtil = function() {
 			window.addEventListener("resize", (function() {
 				KTUtil.throttle(undefined, (function() {
 					! function() {
-						for (var t = 0; t < e.length; t++) e[t].call()
+						for (var t = 0; t < e.length; t++){
+							
+							e[t].call()
+						} 
 					}()
 				}), 200)
 			}))
@@ -1810,7 +1930,10 @@ var KTUtil = function() {
 			e.push(t)
 		},
 		removeResizeHandler: function(t) {
-			for (var n = 0; n < e.length; n++) t === e[n] && delete e[n]
+			for (var n = 0; n < e.length; n++) {
+				
+				t === e[n] && delete e[n]
+			}
 		},
 		runResizeHandlers: function() {
 			_runResizeHandlers()
@@ -1824,8 +1947,10 @@ var KTUtil = function() {
 		},
 		getURLParam: function(e) {
 			var t, n, i = window.location.search.substring(1).split("&");
-			for (t = 0; t < i.length; t++)
+			for (t = 0; t < i.length; t++){
+				
 				if ((n = i[t].split("="))[0] == e) return unescape(n[1]);
+			}
 			return null
 		},
 		isMobileDevice: function() {
@@ -1872,6 +1997,7 @@ var KTUtil = function() {
 		},
 		getHighestZindex: function(e) {
 			for (var t, n; e && e !== document;) {
+				
 				if (("absolute" === (t = KTUtil.css(e, "position")) || "relative" === t || "fixed" === t) && (n = parseInt(KTUtil.css(e, "z-index")), !isNaN(n) && 0 !== n)) return n;
 				e = e.parentNode
 			}
@@ -1879,6 +2005,7 @@ var KTUtil = function() {
 		},
 		hasFixedPositionedParent: function(e) {
 			for (; e && e !== document;) {
+				
 				if ("fixed" === KTUtil.css(e, "position")) return !0;
 				e = e.parentNode
 			}
@@ -1896,17 +2023,28 @@ var KTUtil = function() {
 		deepExtend: function(e) {
 			e = e || {};
 			for (var t = 1; t < arguments.length; t++) {
+				
 				var n = arguments[t];
-				if (n)
-					for (var i in n) n.hasOwnProperty(i) && ("[object Object]" !== Object.prototype.toString.call(n[i]) ? e[i] = n[i] : e[i] = KTUtil.deepExtend(e[i], n[i]))
+				if (n){
+					for (var i in n) {
+						
+						n.hasOwnProperty(i) && ("[object Object]" !== Object.prototype.toString.call(n[i]) ? e[i] = n[i] : e[i] = KTUtil.deepExtend(e[i], n[i]))
+					}
+				}
 			}
 			return e
 		},
 		extend: function(e) {
 			e = e || {};
-			for (var t = 1; t < arguments.length; t++)
-				if (arguments[t])
-					for (var n in arguments[t]) arguments[t].hasOwnProperty(n) && (e[n] = arguments[t][n]);
+			for (var t = 1; t < arguments.length; t++){
+				
+				if (arguments[t]){
+					for (var n in arguments[t]) {
+						
+						arguments[t].hasOwnProperty(n) && (e[n] = arguments[t][n]);
+					}
+				}
+			}
 			return e
 		},
 		getBody: function() {
@@ -1914,8 +2052,10 @@ var KTUtil = function() {
 		},
 		hasClasses: function(e, t) {
 			if (e) {
-				for (var n = t.split(" "), i = 0; i < n.length; i++)
+				for (var n = t.split(" "), i = 0; i < n.length; i++){
+					
 					if (0 == KTUtil.hasClass(e, KTUtil.trim(n[i]))) return !1;
+				}
 				return !0
 			}
 		},
@@ -1925,19 +2065,34 @@ var KTUtil = function() {
 		addClass: function(e, t) {
 			if (e && void 0 !== t) {
 				var n = t.split(" ");
-				if (e.classList)
-					for (var i = 0; i < n.length; i++) n[i] && n[i].length > 0 && e.classList.add(KTUtil.trim(n[i]));
-				else if (!KTUtil.hasClass(e, t))
-					for (var r = 0; r < n.length; r++) e.className += " " + KTUtil.trim(n[r])
+				if (e.classList){
+					for (var i = 0; i < n.length; i++) {
+						
+						n[i] && n[i].length > 0 && e.classList.add(KTUtil.trim(n[i]));
+					}
+				}
+				else if (!KTUtil.hasClass(e, t)) {
+					for (var r = 0; r < n.length; r++){
+						
+						e.className += " " + KTUtil.trim(n[r])
+					}
+				}
 			}
 		},
 		removeClass: function(e, t) {
 			if (e && void 0 !== t) {
 				var n = t.split(" ");
-				if (e.classList)
-					for (var i = 0; i < n.length; i++) e.classList.remove(KTUtil.trim(n[i]));
-				else if (KTUtil.hasClass(e, t))
-					for (var r = 0; r < n.length; r++) e.className = e.className.replace(new RegExp("\\b" + KTUtil.trim(n[r]) + "\\b", "g"), "")
+				if (e.classList){
+					for (var i = 0; i < n.length; i++) {
+						
+						e.classList.remove(KTUtil.trim(n[i]));
+					}
+				}else if (KTUtil.hasClass(e, t)){
+					for (var r = 0; r < n.length; r++) {
+						
+						e.className = e.className.replace(new RegExp("\\b" + KTUtil.trim(n[r]) + "\\b", "g"), "")
+					}
+				}
 			}
 		},
 		triggerCustomEvent: function(e, t, n) {
@@ -1980,8 +2135,10 @@ var KTUtil = function() {
 			}
 		},
 		index: function(e) {
-			for (var t = e.parentNode.children, n = 0; n < t.length; n++)
+			for (var t = e.parentNode.children, n = 0; n < t.length; n++){
+				
 				if (t[n] == e) return n
+			}
 		},
 		trim: function(e) {
 			return e.trim()
@@ -2002,12 +2159,18 @@ var KTUtil = function() {
 			return t.parentNode.insertBefore(e, t.nextSibling)
 		},
 		parents: function(e, t) {
-			for (var n = []; e && e !== document; e = e.parentNode) t ? e.matches(t) && n.push(e) : n.push(e);
+			for (var n = []; e && e !== document; e = e.parentNode) {
+				
+				t ? e.matches(t) && n.push(e) : n.push(e);
+			}
 			return n
 		},
 		children: function(e, t, n) {
 			if (!e || !e.childNodes) return null;
-			for (var i = [], r = 0, o = e.childNodes.length; r < o; ++r) 1 == e.childNodes[r].nodeType && KTUtil.matches(e.childNodes[r], t, n) && i.push(e.childNodes[r]);
+			for (var i = [], r = 0, o = e.childNodes.length; r < o; ++r) {
+				
+				1 == e.childNodes[r].nodeType && KTUtil.matches(e.childNodes[r], t, n) && i.push(e.childNodes[r]);
+			}
 			return i
 		},
 		child: function(e, t, n) {
@@ -2179,7 +2342,11 @@ var KTUtil = function() {
 				var r = KTUtil.getUniqueId("event");
 				return window.KTUtilDelegatedEventHandlers[r] = function(n) {
 					for (var r = e.querySelectorAll(t), o = n.target; o && o !== e;) {
-						for (var a = 0, l = r.length; a < l; a++) o === r[a] && i.call(o, n);
+						
+						for (var a = 0, l = r.length; a < l; a++) {
+							
+							o === r[a] && i.call(o, n);
+						}
 						o = o.parentNode
 					}
 				}, KTUtil.addEvent(e, n, window.KTUtilDelegatedEventHandlers[r]), r
@@ -2196,7 +2363,10 @@ var KTUtil = function() {
 		hash: function(e) {
 			var t, n = 0;
 			if (0 === e.length) return n;
-			for (t = 0; t < e.length; t++) n = (n << 5) - n + e.charCodeAt(t), n |= 0;
+			for (t = 0; t < e.length; t++) {
+				
+				n = (n << 5) - n + e.charCodeAt(t), n |= 0;
+			}
 			return n
 		},
 		animateClass: function(e, t, n) {
@@ -2207,7 +2377,10 @@ var KTUtil = function() {
 				WebkitAnimation: "webkitAnimationEnd",
 				msAnimation: "msAnimationEnd"
 			};
-			for (var o in r) void 0 !== e.style[o] && (i = r[o]);
+			for (var o in r) {
+				
+				void 0 !== e.style[o] && (i = r[o]);
+			}
 			KTUtil.addClass(e, t), KTUtil.one(e, i, (function() {
 				KTUtil.removeClass(e, t)
 			})), n && KTUtil.one(e, i, n)
@@ -2220,7 +2393,10 @@ var KTUtil = function() {
 				WebkitTransition: "webkitTransitionEnd",
 				msTransition: "msTransitionEnd"
 			};
-			for (var r in i) void 0 !== e.style[r] && (n = i[r]);
+			for (var r in i) {
+				
+				void 0 !== e.style[r] && (n = i[r]);
+			}
 			KTUtil.one(e, n, t)
 		},
 		animationEnd: function(e, t) {
@@ -2231,14 +2407,23 @@ var KTUtil = function() {
 				WebkitAnimation: "webkitAnimationEnd",
 				msAnimation: "msAnimationEnd"
 			};
-			for (var r in i) void 0 !== e.style[r] && (n = i[r]);
+			for (var r in i) {
+				
+				void 0 !== e.style[r] && (n = i[r]);
+			}
 			KTUtil.one(e, n, t)
 		},
 		animateDelay: function(e, t) {
-			for (var n = ["webkit-", "moz-", "ms-", "o-", ""], i = 0; i < n.length; i++) KTUtil.css(e, n[i] + "animation-delay", t)
+			for (var n = ["webkit-", "moz-", "ms-", "o-", ""], i = 0; i < n.length; i++) {
+				
+				KTUtil.css(e, n[i] + "animation-delay", t)
+			}
 		},
 		animateDuration: function(e, t) {
-			for (var n = ["webkit-", "moz-", "ms-", "o-", ""], i = 0; i < n.length; i++) KTUtil.css(e, n[i] + "animation-duration", t)
+			for (var n = ["webkit-", "moz-", "ms-", "o-", ""], i = 0; i < n.length; i++) {
+				
+				KTUtil.css(e, n[i] + "animation-duration", t)
+			}
 		},
 		scrollTo: function(e, t, n) {
 			n = n || 500;
@@ -2254,8 +2439,10 @@ var KTUtil = function() {
 			return e && Array.isArray(e)
 		},
 		isEmpty: function(e) {
-			for (var t in e)
+			for (var t in e){
+				
 				if (e.hasOwnProperty(t)) return !1;
+			}
 			return !0
 		},
 		numberString: function(e) {
@@ -2327,7 +2514,10 @@ var KTUtil = function() {
 				i = null;
 			if ("object" == typeof(e = KTUtil.parseJson(e))) {
 				var r, o, a = -1;
-				for (var l in e)(o = "default" === l ? 0 : this.getBreakpoint(l) ? this.getBreakpoint(l) : parseInt(l)) <= n && o > a && (r = l, a = o);
+				for (var l in e){
+					
+					(o = "default" === l ? 0 : this.getBreakpoint(l) ? this.getBreakpoint(l) : parseInt(l)) <= n && o > a && (r = l, a = o);
+				}
 				i = r ? e[r] : e
 			} else i = e;
 			return i
@@ -2533,7 +2723,7 @@ var KTThemeModeUser = {
 		KTThemeMode.on("kt.thememode.change", (function() {
 			var e = KTThemeMode.getMenuMode(),
 				t = KTThemeMode.getMode();
-			console.log("user selected theme mode:" + e), console.log("theme mode:" + t)
+			
 		}))
 	}
 };
