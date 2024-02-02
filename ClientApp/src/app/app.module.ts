@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 import { IndexComponent } from './components/private/main/index/index.component';
 import { SignInComponent } from './components/public/signin/signin.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    FetchDataComponent,
     IndexComponent,
     SignInComponent,
     MainComponent,

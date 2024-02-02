@@ -6,7 +6,11 @@ const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_H
 const PROXY_CONFIG = [
   {
     context: [
-      "/account/*",
+      "/webAccount/*",
+      "/webEmail/*",
+      "/webProfile/*",
+      "/webQuotes/*",
+      "/webSupport/*",
    ],
     proxyTimeout: 10000,
     target: target,

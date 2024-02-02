@@ -6,9 +6,9 @@ import { Component, Inject } from '@angular/core';
   templateUrl: './index.component.html'
 })
 export class IndexComponent {
-  public accounts: Account[] = [];
+  // public accounts: Account[] = [];
   // constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-  //   http.get<Account[]>(baseUrl + 'account/get').subscribe(result => {
+  //   http.get<Account[]>(baseUrl + 'webAccount/get').subscribe(result => {
   //     this.accounts = result;
   //     console.log(result);
   //   }, error => console.error(error));
