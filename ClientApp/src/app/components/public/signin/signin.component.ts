@@ -45,6 +45,7 @@ export class SignInComponent {
           localStorage.setItem("strToken", response.data.strToken);
           localStorage.setItem("strCode", response.data.strCode);
           localStorage.setItem("fullName", response.data.fullName);
+          localStorage.setItem("strEmail", this.login.get('acUser')?.value??"");
           this.router.navigate(['/Main']);
         }else{
           this.isError = true;
