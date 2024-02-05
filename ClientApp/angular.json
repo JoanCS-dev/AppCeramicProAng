@@ -30,7 +30,9 @@
               "src/assets"
             ],
             "styles": [],
-            "scripts": []
+            "scripts": [
+              "src/assets/template.js"
+            ]
           },
           "configurations": {
             "production": {

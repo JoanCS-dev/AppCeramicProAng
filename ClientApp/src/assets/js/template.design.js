@@ -1,13 +1,10 @@
+
 var KTComponents = {
 	init: function() {
 		KTApp.init(), KTDrawer.init(), KTMenu.init(), KTScroll.init(), KTSticky.init(), KTSwapper.init(), KTToggle.init(), KTScrolltop.init(), KTDialer.init(), KTImageInput.init(), KTPasswordMeter.init()
 	}
 };
-document.addEventListener("DOMContentLoaded", (function() {
-	setTimeout(function(){
-		KTComponents.init()
-	}, 200);
-})), 
+
 "undefined" != typeof module && void 0 !== module.exports && (window.KTComponents = module.exports = KTComponents);
 var KTApp = function() {
 	var e = !1,
