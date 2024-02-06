@@ -62,8 +62,96 @@
               <input type="date" class="form-control form-control-solid" id="txtReceptiónDate" placeholder="0">
             </div>
             <div class="col-md-4 mt-2">
-              <label for="txtPackage" class="form-label required">Paquete</label>
-              <input type="text" class="form-control form-control-solid" id="txtPackage" placeholder="{{placeholderText}}">
+              <label for="lstPackage" class="form-label required">Paquete</label>
+              <select id="lstPackage" class="form-select form-select-solid">
+                <option value="-1">Seleccione</option>
+                <option value="1">CP BRONZE AUTO</option>
+                <option value="2">CP BRONZE SUV</option>
+                <option value="3">CP BRONZE XL</option>
+                <option value="4">CP GOLD AUTO</option>
+                <option value="5">CP GOLD SUV</option>
+                <option value="6">CP GOLD XL</option>
+                <option value="7">CP ION AUTO</option>
+                <option value="8">CP ION SUV</option>
+                <option value="9">CP ION XL</option>
+                <option value="10">CP SILVER AUTO</option>
+                <option value="11">CP SILVER PLUS AUTO</option>
+                <option value="12">CP SILVER PLUS SUV</option>
+                <option value="13">CP SILVER PLUS XL</option>
+                <option value="14">CP SILVER SUV</option>
+                <option value="15">CP SILVER XL</option>
+                <option value="16">CP SPORT + CORRECCION AUTO</option>
+                <option value="17">CP SPORT + CORRECCION SUV</option>
+                <option value="18">CP SPORT + CORRECCION XL</option>
+                <option value="19">CP ULTIMATE ION AUTO</option>
+                <option value="20">CP ULTIMATE ION SUV</option>
+                <option value="21">CP ULTIMATE ION XL</option>
+                <option value="22">CORRECCION FAROS AUTO</option>
+                <option value="23">CORRECCION FAROS SUV</option>
+                <option value="24">CORRECCION FAROS XL</option>
+                <option value="25">CORRECCION MAYOR 90% AUTO</option>
+                <option value="26">CORRECCION MAYOR 90% SUV</option>
+                <option value="27">CORRECCION MAYOR 90% XL</option>
+                <option value="28">CORRECCION MEDIA 70% AUTO</option>
+                <option value="29">CORRECCION MEDIA 70% SUV</option>
+                <option value="30">CORRECCION MEDIA 70% XL</option>
+                <option value="31">CORRECCION MENOR 1 STEP AUTO</option>
+                <option value="32">CORRECCION MENOR 1 STEP SUV</option>
+                <option value="33">CORRECCION MENOR 1 STEP XL</option>
+                <option value="34">DESCONTAMINADO CRISTALES AUTO</option>
+                <option value="35">DESCONTAMINADO CRISTALES SUV</option>
+                <option value="36">DESCONTAMINADO CRISTALES XL</option>
+                <option value="37">DESCONTAMINADO RINES AUTO</option>
+                <option value="38">DESCONTAMINADO RINES SUV</option>
+                <option value="39">DESCONTAMINADO RINES XL</option>
+                <option value="40">DESCONTAMINADO+LP+SPORT AUTO</option>
+                <option value="41">DESCONTAMINADO+LP+SPORT SUV</option>
+                <option value="42">DESCONTAMINADO+LP+SPORT XL</option>
+                <option value="43">INTERIORES AUTO</option>
+                <option value="44">INTERIORES SUV</option>
+                <option value="45">INTERIORES XL</option>
+                <option value="46">PPF VARIOS</option>
+                <option value="47">PPF BASIC AUTO</option>
+                <option value="48">PPF BASIC SUV</option>
+                <option value="49">PPF BASIC XL</option>
+                <option value="50">PPF FULL BODY AUTO</option>
+                <option value="51">PPF FULL BODY SUV</option>
+                <option value="52">PPF FULL BODY XL</option>
+                <option value="53">PPF FULL FRONT AUTO</option>
+                <option value="54">PPF FULL FRONT SUV</option>
+                <option value="55">PPF FULL FRONT XL</option>
+                <option value="56">PPF PREMIUM AUTO</option>
+                <option value="57">PPF PREMIUM SUV</option>
+                <option value="58">PPF PREMIUM XL</option>
+                <option value="59">PPF STANDARD AUTO</option>
+                <option value="60">PPF STANDARD SUV</option>
+                <option value="61">PPF STANDARD XL</option>
+                <option value="62">LAVADO PREMIUM AUTO</option>
+                <option value="63">LAVADO PREMIUM SUV</option>
+                <option value="64">LAVADO PREMIUM XL</option>
+                <option value="65">LAVADO SPORT AUTO</option>
+                <option value="66">LAVADO SPORT SUV</option>
+                <option value="67">LAVADO SPORT XL</option>
+                <option value="68">MTTO CERAMIC PRO AUTO</option>
+                <option value="69">MTTO CERAMIC PRO SUV</option>
+                <option value="70">MTTO CERAMIC PRO XL</option>
+                <option value="71">PAQ LAVADO 1 SPORT + 3 PREMIUM AUTO</option>
+                <option value="72">PAQ LAVADO 1 SPORT + 3 PREMIUM SUV</option>
+                <option value="73">PAQ LAVADO 1 SPORT + 3 PREMIUM XL</option>
+                <option value="74">PAQ LAVADO 4 PREMIUM AUTO</option>
+                <option value="75">PAQ LAVADO 4 PREMIUM SUV</option>
+                <option value="76">PAQ LAVADO 4 PREMIUM XL</option>
+                <option value="77">PINTURA POR PIEZA AUTO</option>
+                <option value="78">PINTURA POR PIEZA SUV</option>
+                <option value="79">PINTURA POR PIEZA XL</option>
+                <option value="80">PINTURA RINES SUV</option>
+                <option value="81">PINTURA RINES  AUTO</option>
+                <option value="82">PINTURA RINES XL</option>
+                <option value="83">WT CERAMIC IR 2 FRONT</option>
+                <option value="84">WT CERAMIC IR FULL</option>
+                <option value="85">WT ULTIMATE 2 FRONT</option>
+                <option value="86">WT ULTIMATE FULL</option>
+              </select>
             </div>
             <div class="col-md-2 mt-2">
               <label for="txtCostPackage" class="form-label required">Costo Paquete</label>
@@ -74,16 +162,31 @@
               <input type="date" class="form-control form-control-solid" id="txtDateDelivery" placeholder="{{placeholderText}}">
             </div>
             <div class="col-md-4 mt-2">
-              <label for="txtConsultant" class="form-label required">Asesor</label>
-              <input type="text" class="form-control form-control-solid" id="txtConsultant" placeholder="{{placeholderText}}">
+              <label for="lstConsultant" class="form-label required">Asesor</label>
+              <select id="lstConsultant" class="form-select form-select-solid">
+                <option value="-1">Seleccione</option>
+                <option value='1'>ANIEL IBARRA M</option>
+                <option value='2'>OBERTO ALBINO V</option>
+                <option value='3'>VAN COLLAZO N</option>
+                <option value='4'>AFAEL PICON V</option>
+                <option value='5'>USANA MONDRAGON P</option>
+                <option value='6'>MILIANO SANCHEZ M</option>
+                <option value='7'>EDRO COLLAZO N</option>
+                <option value='8'>ECTOR MURILLO</option>
+              </select>
             </div>
             <div class="col-md-6 mt-2">
               <label for="txtConcept" class="form-label required">Concepto</label>
               <input type="text" class="form-control form-control-solid" id="txtConcept" placeholder="{{placeholderText}}">
             </div>
             <div class="col-md-4 mt-2">
-              <label for="txtInstaller" class="form-label required">Instalador</label>
-              <input type="text" class="form-control form-control-solid" id="txtInstaller" placeholder="{{placeholderText}}">
+              <label for="lstInstaller" class="form-label required">Instalador</label>
+              <select id="lstInstaller" class="form-select form-select-solid">
+                <option value="-1">Seleccione</option>
+                <option value="1">IVAN COLLAZO N</option>
+                <option value="2">RAFAEL PICON V</option>
+                <option value="3">HECTOR MURILLO</option>
+              </select>
             </div>
             <div class="col-md-4 mt-2">
               <label for="txtAdditional" class="form-label required">Adicional</label>
@@ -102,8 +205,8 @@
               <input type="text" class="form-control form-control-solid" id="txtDocument" placeholder="{{placeholderText}}">
             </div>
             <div class="col-md-4 mt-2">
-              <label for="txtCorrection" class="form-label required">Tipo de correción</label>
-              <select id="txtCorrection" class="form-select form-select-solid">
+              <label for="lstCorrection" class="form-label required">Tipo de correción</label>
+              <select id="lstCorrection" class="form-select form-select-solid">
                 <option value="-1">Seleccione</option>
                 <option value="1">MENOR</option>
                 <option value="2">MEDIA</option>
