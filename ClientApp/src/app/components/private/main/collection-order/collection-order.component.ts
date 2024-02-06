@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./collection-order.component.css']
 })
 export class CollectionOrderComponent {
-
+  
+  constructor(){
+  }
 }

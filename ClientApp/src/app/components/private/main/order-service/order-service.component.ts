@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./order-service.component.css']
 })
 export class OrderServiceComponent {
-
+  public placeholderText: string = "Escribe Aquí";
+  public placeholderPhone: string = "0000 0000 00";
+  public placeholderEmail: string = "ejemplo@gmail.com";
 }

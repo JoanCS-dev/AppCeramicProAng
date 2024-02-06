@@ -1,1 +1,296 @@
-<p>order-service works!</p>
+
+<div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 ">
+  <div id="kt_app_toolbar_container" class="app-container  container-fluid d-flex flex-stack ">
+    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
+      <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
+        Agregar ordenes de servicio
+      </h1>
+  
+  
+      <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+        <li class="breadcrumb-item text-muted">
+          Por favor captura todos los datos para guardar la ordene de servicio para los clientes. (Los campos con * son obligatorios)
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="kt_app_content" class="app-content  flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container  container-xxl ">
+    <div class="card">
+      <div class="card-body">
+       
+        <div class="form">
+
+          <div class="row">
+
+
+            <div class="col-md-12">
+              <b class="h3">(1) Información del cliente</b>
+              <div class="separator separator-dashed my-4"></div>
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtClient" class="form-label required">Cliente</label>
+              <input type="text" class="form-control form-control-solid" id="txtClient" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtPhone" class="form-label required">Teléfono</label>
+              <input type="text" class="form-control form-control-solid" id="txtPhone" placeholder="{{placeholderPhone}}">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtEmail" class="form-label required">Correo Electrónico</label>
+              <input type="email" class="form-control form-control-solid" id="txtEmail" placeholder="{{placeholderEmail}}">
+            </div>
+
+
+
+            <div class="col-md-12 mt-4">
+              <br>
+              <b class="h3">(2) Información del servicio</b>
+              <div class="separator separator-dashed my-4"></div>
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtNoService" class="form-label required">Número de servicio</label>
+              <input type="number" class="form-control form-control-solid" id="txtNoService" placeholder="0">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtServiceDate" class="form-label required">Fecha de servicio</label>
+              <input type="date" class="form-control form-control-solid" id="txtServiceDate" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtReceptiónDate" class="form-label required">Fecha de recepción</label>
+              <input type="date" class="form-control form-control-solid" id="txtReceptiónDate" placeholder="0">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtPackage" class="form-label required">Paquete</label>
+              <input type="text" class="form-control form-control-solid" id="txtPackage" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtCostPackage" class="form-label required">Costo Paquete</label>
+              <input type="number" class="form-control form-control-solid" id="txtCostPackage" placeholder="$0.00">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtDateDelivery" class="form-label required">Fecha de entrega</label>
+              <input type="date" class="form-control form-control-solid" id="txtDateDelivery" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtConsultant" class="form-label required">Asesor</label>
+              <input type="text" class="form-control form-control-solid" id="txtConsultant" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-6 mt-2">
+              <label for="txtConcept" class="form-label required">Concepto</label>
+              <input type="text" class="form-control form-control-solid" id="txtConcept" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtInstaller" class="form-label required">Instalador</label>
+              <input type="text" class="form-control form-control-solid" id="txtInstaller" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtAdditional" class="form-label required">Adicional</label>
+              <input type="text" class="form-control form-control-solid" id="txtAdditional" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtCostAdditional" class="form-label required">Costo Adicional</label>
+              <input type="number" class="form-control form-control-solid" id="txtCostAdditional" placeholder="$0.00">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtDiscount" class="form-label required">Descuento</label>
+              <input type="text" class="form-control form-control-solid" id="txtDiscount" placeholder="$0.0">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtDocument" class="form-label required">Documentos</label>
+              <input type="text" class="form-control form-control-solid" id="txtDocument" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtCorrection" class="form-label required">Tipo de correción</label>
+              <select id="txtCorrection" class="form-select form-select-solid">
+                <option value="-1">Seleccione</option>
+                <option value="1">MENOR</option>
+                <option value="2">MEDIA</option>
+                <option value="3">MAYOR</option>
+              </select>
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="txtPromotion" class="form-label required">Promoción</label>
+              <input type="text" class="form-control form-control-solid" id="txtPromotion" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="lstSource" class="form-label required">Fuente</label>
+              <select id="lstSource" class="form-select form-select-solid">
+                <option value="-1">Seleccione</option>
+                <option value="1">REDES SOCIALES</option>
+                <option value="2">EVENTOS</option>
+                <option value="3">RECOMENDADO</option>
+                <option value="4">PUBLICIDAD</option>
+              </select>
+            </div>
+            <div class="col-md-4 mt-2">
+              <label for="lstMethodPay" class="form-label required">Metodo de pago</label>
+              <select id="lstMethodPay" class="form-select form-select-solid">
+                <option value="-1">Seleccione</option>
+                <option value="1">PAGO EN UNA EXHIBICIÓN</option>
+                <option value="2">PAGOS DIFERIDOS</option>
+              </select>
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="lstNumPays" class="form-label required">No Pagos</label>
+              <select id="lstNumPays" class="form-select form-select-solid">
+                <option value="-1">Seleccione</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+
+
+
+
+
+            
+
+
+
+            <div class="col-md-12 mt-4">
+              <br>
+              <b class="h3">(3) Información del vehículo</b>
+              <div class="separator separator-dashed my-4"></div>
+            </div>
+            
+            <div class="col-md-3 mt-2">
+              <label for="txtBrand" class="form-label required">Marca</label>
+              <input type="text" class="form-control form-control-solid" id="txtBrand" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-3 mt-2">
+              <label for="txtModel" class="form-label required">Modelo</label>
+              <input type="text" class="form-control form-control-solid" id="txtModel" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtColor" class="form-label required">Color</label>
+              <input type="text" class="form-control form-control-solid" id="txtColor" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-2 mt-2">
+              <label for="txtKmtrs" class="form-label required">Kilometraje</label>
+              <input type="number" class="form-control form-control-solid" id="txtKmtrs" placeholder="{{placeholderText}}">
+            </div>
+            <div class="col-md-2 mt-2 mb-5">
+              <label for="txtLicensePlates" class="form-label required">Placas</label>
+              <input type="text" class="form-control form-control-solid" id="txtLicensePlates" placeholder="{{placeholderText}}">
+            </div>
+
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chInsuredCar">
+                    <label for="chInsuredCar" class="form-label">Asegurado</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chTools">
+                    <label for="chTools" class="form-label">Herramientas</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chSpareTire">
+                    <label for="chSpareTire" class="form-label">Llanta de refacción</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chKey">
+                    <label for="chKey" class="form-label">Llave de cruz</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chSafetyBolt">
+                    <label for="chSafetyBolt" class="form-label">Birlo de seguridad</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chMatsDel">
+                    <label for="chMatsDel" class="form-label">Tapetes Del</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chMatsTr">
+                    <label for="chMatsTr" class="form-label">Tapetes TR</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chAntenna">
+                    <label for="chAntenna" class="form-label">Antena</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chRadio">
+                    <label for="chRadio" class="form-label">Radio</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chStart">
+                    <label for="chStart" class="form-label">Encendedor</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chCarFantasies">
+                    <label for="chCarFantasies" class="form-label">Fantasmas</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chRefEmer">
+                    <label for="chRefEmer" class="form-label">Ref Emer</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chTasGas">
+                    <label for="chTasGas" class="form-label">Tapon de gasolina</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="col-md-12 text-center">
+            <br><br>
+            <button type="button" class="btn btn-sm btn-secondary">Limpiar Formulario</button>&nbsp;
+            <button type="button" class="btn btn-sm btn-primary">Guardar Cambios</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
