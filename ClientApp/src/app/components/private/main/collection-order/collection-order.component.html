@@ -1,51 +1,302 @@
-
 <div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 ">
   <div id="kt_app_toolbar_container" class="app-container  container-fluid d-flex flex-stack ">
     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
-      <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
-        Default
-      </h1>
-  
-  
+      <h3 class="page-heading d-flex text-gray-900 text-uppercase flex-column justify-content-center my-0">
+        Cobrar orden de servicio
+      </h3>
       <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
         <li class="breadcrumb-item text-muted">
-          <a href="/keen/demo1/index.html" class="text-muted text-hover-primary">
-            Home </a>
+          Los campos con <span class="text-danger fw-bold">( * )</span> son obligatorios
         </li>
-        <li class="breadcrumb-item">
-          <span class="bullet bg-gray-500 w-5px h-2px"></span>
-        </li>
-        <li class="breadcrumb-item text-muted">
-          Dashboards </li>
       </ul>
     </div>
     <div class="d-flex align-items-center gap-2 gap-lg-3">
       <div class="d-flex">
-        <select name="campaign-type" data-control="select2" data-hide-search="true"
-          class="form-select form-select-sm bg-body border-body w-175px select2-hidden-accessible"
-          data-select2-id="select2-data-7-7rxo" tabindex="-1" aria-hidden="true" data-kt-initialized="1">
-          <option value="Twitter" selected="selected" data-select2-id="select2-data-9-vtaf">Select Campaign</option>
-          <option value="Twitter">Twitter Campaign</option>
-          <option value="Twitter">Facebook Campaign</option>
-          <option value="Twitter">Adword Campaign</option>
-          <option value="Twitter">Carbon Campaign</option>
-        </select><span class="select2 select2-container select2-container--bootstrap5" dir="ltr"
-          data-select2-id="select2-data-8-jybr" style="width: 100%;"><span class="selection"><span
-              class="select2-selection select2-selection--single form-select form-select-sm bg-body border-body w-175px"
-              role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
-              aria-labelledby="select2-campaign-type-28-container"
-              aria-controls="select2-campaign-type-28-container"><span class="select2-selection__rendered"
-                id="select2-campaign-type-28-container" role="textbox" aria-readonly="true" title="Select Campaign">Select
-                Campaign</span><span class="select2-selection__arrow" role="presentation"><b
-                  role="presentation"></b></span></span></span><span class="dropdown-wrapper"
-            aria-hidden="true"></span></span>
-  
-        <a href="#" class="btn btn-icon btn-sm btn-success flex-shrink-0 ms-4" data-bs-toggle="modal"
-          data-bs-target="#kt_modal_create_campaign">
-          <i class="ki-duotone ki-plus fs-2"></i>
-        </a>
       </div>
-      
     </div>
+  </div>
+
+</div>
+<div id="kt_app_content" class="app-content  flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container  container-xxl ">
+    <form>
+      <div class="d-flex flex-column gap-7 gap-lg-10">
+
+
+        <div class="card card-flush">
+          <div class="card-header">
+            <div class="card-title">
+              <h3 class="text-gray-600">Información del servicio</h3>
+            </div>
+          </div>
+          <div class="card-body pt-0">
+            <div class="row">
+              <div class="col-md-2 mt-2">
+                <label for="txtNoService" class="form-label required">No. de servicio</label>
+                <input type="number" class="form-control" id="txtNoService" placeholder="0">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtNoCollectionOrder" class="form-label required">No. orden de cobro</label>
+                <input type="number" class="form-control" id="txtNoCollectionOrder" placeholder="0">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtServiceDate" class="form-label required">Fecha orden de cobro</label>
+                <input type="date" class="form-control" id="txtServiceDate" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-4 mt-2">
+                <label for="lstPackage" class="form-label required">Paquete</label>
+                <select id="lstPackage" class="form-select">
+                  <option value="-1">Seleccione</option>
+                  <option value="1">CP BRONZE AUTO</option>
+                  <option value="2">CP BRONZE SUV</option>
+                  <option value="3">CP BRONZE XL</option>
+                  <option value="4">CP GOLD AUTO</option>
+                  <option value="5">CP GOLD SUV</option>
+                  <option value="6">CP GOLD XL</option>
+                  <option value="7">CP ION AUTO</option>
+                  <option value="8">CP ION SUV</option>
+                  <option value="9">CP ION XL</option>
+                  <option value="10">CP SILVER AUTO</option>
+                  <option value="11">CP SILVER PLUS AUTO</option>
+                  <option value="12">CP SILVER PLUS SUV</option>
+                  <option value="13">CP SILVER PLUS XL</option>
+                  <option value="14">CP SILVER SUV</option>
+                  <option value="15">CP SILVER XL</option>
+                  <option value="16">CP SPORT + CORRECCION AUTO</option>
+                  <option value="17">CP SPORT + CORRECCION SUV</option>
+                  <option value="18">CP SPORT + CORRECCION XL</option>
+                  <option value="19">CP ULTIMATE ION AUTO</option>
+                  <option value="20">CP ULTIMATE ION SUV</option>
+                  <option value="21">CP ULTIMATE ION XL</option>
+                  <option value="22">CORRECCION FAROS AUTO</option>
+                  <option value="23">CORRECCION FAROS SUV</option>
+                  <option value="24">CORRECCION FAROS XL</option>
+                  <option value="25">CORRECCION MAYOR 90% AUTO</option>
+                  <option value="26">CORRECCION MAYOR 90% SUV</option>
+                  <option value="27">CORRECCION MAYOR 90% XL</option>
+                  <option value="28">CORRECCION MEDIA 70% AUTO</option>
+                  <option value="29">CORRECCION MEDIA 70% SUV</option>
+                  <option value="30">CORRECCION MEDIA 70% XL</option>
+                  <option value="31">CORRECCION MENOR 1 STEP AUTO</option>
+                  <option value="32">CORRECCION MENOR 1 STEP SUV</option>
+                  <option value="33">CORRECCION MENOR 1 STEP XL</option>
+                  <option value="34">DESCONTAMINADO CRISTALES AUTO</option>
+                  <option value="35">DESCONTAMINADO CRISTALES SUV</option>
+                  <option value="36">DESCONTAMINADO CRISTALES XL</option>
+                  <option value="37">DESCONTAMINADO RINES AUTO</option>
+                  <option value="38">DESCONTAMINADO RINES SUV</option>
+                  <option value="39">DESCONTAMINADO RINES XL</option>
+                  <option value="40">DESCONTAMINADO+LP+SPORT AUTO</option>
+                  <option value="41">DESCONTAMINADO+LP+SPORT SUV</option>
+                  <option value="42">DESCONTAMINADO+LP+SPORT XL</option>
+                  <option value="43">INTERIORES AUTO</option>
+                  <option value="44">INTERIORES SUV</option>
+                  <option value="45">INTERIORES XL</option>
+                  <option value="46">PPF VARIOS</option>
+                  <option value="47">PPF BASIC AUTO</option>
+                  <option value="48">PPF BASIC SUV</option>
+                  <option value="49">PPF BASIC XL</option>
+                  <option value="50">PPF FULL BODY AUTO</option>
+                  <option value="51">PPF FULL BODY SUV</option>
+                  <option value="52">PPF FULL BODY XL</option>
+                  <option value="53">PPF FULL FRONT AUTO</option>
+                  <option value="54">PPF FULL FRONT SUV</option>
+                  <option value="55">PPF FULL FRONT XL</option>
+                  <option value="56">PPF PREMIUM AUTO</option>
+                  <option value="57">PPF PREMIUM SUV</option>
+                  <option value="58">PPF PREMIUM XL</option>
+                  <option value="59">PPF STANDARD AUTO</option>
+                  <option value="60">PPF STANDARD SUV</option>
+                  <option value="61">PPF STANDARD XL</option>
+                  <option value="62">LAVADO PREMIUM AUTO</option>
+                  <option value="63">LAVADO PREMIUM SUV</option>
+                  <option value="64">LAVADO PREMIUM XL</option>
+                  <option value="65">LAVADO SPORT AUTO</option>
+                  <option value="66">LAVADO SPORT SUV</option>
+                  <option value="67">LAVADO SPORT XL</option>
+                  <option value="68">MTTO CERAMIC PRO AUTO</option>
+                  <option value="69">MTTO CERAMIC PRO SUV</option>
+                  <option value="70">MTTO CERAMIC PRO XL</option>
+                  <option value="71">PAQ LAVADO 1 SPORT + 3 PREMIUM AUTO</option>
+                  <option value="72">PAQ LAVADO 1 SPORT + 3 PREMIUM SUV</option>
+                  <option value="73">PAQ LAVADO 1 SPORT + 3 PREMIUM XL</option>
+                  <option value="74">PAQ LAVADO 4 PREMIUM AUTO</option>
+                  <option value="75">PAQ LAVADO 4 PREMIUM SUV</option>
+                  <option value="76">PAQ LAVADO 4 PREMIUM XL</option>
+                  <option value="77">PINTURA POR PIEZA AUTO</option>
+                  <option value="78">PINTURA POR PIEZA SUV</option>
+                  <option value="79">PINTURA POR PIEZA XL</option>
+                  <option value="80">PINTURA RINES SUV</option>
+                  <option value="81">PINTURA RINES  AUTO</option>
+                  <option value="82">PINTURA RINES XL</option>
+                  <option value="83">WT CERAMIC IR 2 FRONT</option>
+                  <option value="84">WT CERAMIC IR FULL</option>
+                  <option value="85">WT ULTIMATE 2 FRONT</option>
+                  <option value="86">WT ULTIMATE FULL</option>
+                </select>
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtCostPackage" class="form-label required">Costo Paquete</label>
+                <input type="number" class="form-control" id="txtCostPackage" placeholder="$0.00">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtDateDelivery" class="form-label required">Fecha de entrega</label>
+                <input type="date" class="form-control" id="txtDateDelivery" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-4 mt-2">
+                <label for="lstConsultant" class="form-label required">Asesor</label>
+                <select id="lstConsultant" class="form-select">
+                  <option value="-1">Seleccione</option>
+                  <option value='1'>ANIEL IBARRA M</option>
+                  <option value='2'>OBERTO ALBINO V</option>
+                  <option value='3'>VAN COLLAZO N</option>
+                  <option value='4'>AFAEL PICON V</option>
+                  <option value='5'>USANA MONDRAGON P</option>
+                  <option value='6'>MILIANO SANCHEZ M</option>
+                  <option value='7'>EDRO COLLAZO N</option>
+                  <option value='8'>ECTOR MURILLO</option>
+                </select>
+              </div>
+              <div class="col-md-6 mt-2">
+                <label for="txtConcept" class="form-label required">Concepto</label>
+                <input type="text" class="form-control" id="txtConcept" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-4 mt-2">
+                <label for="lstInstaller" class="form-label required">Instalador</label>
+                <select id="lstInstaller" class="form-select">
+                  <option value="-1">Seleccione</option>
+                  <option value="1">IVAN COLLAZO N</option>
+                  <option value="2">RAFAEL PICON V</option>
+                  <option value="3">HECTOR MURILLO</option>
+                </select>
+              </div>
+              <div class="col-md-4 mt-2">
+                <label for="txtAdditional" class="form-label required">Adicional</label>
+                <input type="text" class="form-control" id="txtAdditional" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtCostAdditional" class="form-label required">Costo Adicional</label>
+                <input type="number" class="form-control" id="txtCostAdditional" placeholder="$0.00">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="lstDiscount" class="form-label required">Descuento %</label>
+                <select id="lstDiscount" class="form-select">
+                  <option value="-1">Seleccione</option>
+                  <option value="1">5%</option>
+                  <option value="2">10%</option>
+                  <option value="3">20%</option>
+                  <option value="4">30%</option>
+                  <option value="5">40%</option>
+                  <option value="6">50%</option>
+                  <option value="7">60%</option>
+                  <option value="8">70%</option>
+                  <option value="9">80%</option>
+                  <option value="10">90%</option>
+                  <option value="11">100%</option>
+                </select>
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtDiscount" class="form-label required">Descuento</label>
+                <input type="text" class="form-control" id="txtDiscount" placeholder="$0.0">
+              </div>
+              <div class="col-md-4 mt-2">
+                <label for="txtPromotion" class="form-label required">Promoción</label>
+                <input type="text" class="form-control" id="txtPromotion" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtReceptionDate" class="form-label required">Fecha recepción</label>
+                <input type="date" class="form-control" id="txtReceptionDate" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="lstBill" class="form-label required">Factura</label>
+                <select id="lstBill" class="form-select">
+                  <option value="-1">Seleccione</option>
+                  <option value="1">SI</option>
+                  <option value="2">NO</option>
+                </select>
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="lstTypePay" class="form-label required">Forma de pago</label>
+                <select id="lstTypePay" class="form-select">
+                  <option value="-1">Seleccione</option>
+                  <option value="1">EFECTIVO</option>
+                  <option value="2">CHEQUE</option>
+                  <option value="3">TRANSFERENCIA</option>
+                  <option value="4">TARJETA DE CREDITO</option>
+                  <option value="5">TARJETA DE DEBITO</option>
+                  <option value="6">PAGOS DIFERIDO</option>
+                </select>
+              </div>
+              <div class="col-md-2 mt-2 mb-5">
+                <label for="txtLicensePlates" class="form-label required">Mat Usado</label>
+                <input type="text" class="form-control" id="txtLicensePlates" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtMltrs" class="form-label required">Mililitros</label>
+                <input type="number" class="form-control" id="txtMltrs" placeholder="0">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtHour" class="form-label required">Horas Invertidas</label>
+                <input type="number" class="form-control" id="txtHour" placeholder="0">
+              </div>
+              <div class="col-md-2 mt-2">
+                <label for="txtCostTotal" class="form-label required">Costo Total</label>
+                <input type="number" class="form-control" id="txtCostTotal" placeholder="$0.00">
+              </div>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-flush">
+          <div class="card-header">
+            <div class="card-title">
+              <h3 class="text-gray-600">Información del cliente</h3>
+            </div>
+          </div>
+          <div class="card-body pt-0">
+            <div class="row">
+              <div class="col-md-12 mt-2">
+                <label for="txtClient" class="form-label required">Cliente</label>
+                <input type="text" class="form-control" id="txtClient" placeholder="{{placeholderText}}">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-flush">
+          <div class="card-header">
+            <div class="card-title">
+              <h3 class="text-gray-600">Información del vehículo</h3>
+            </div>
+          </div>
+          <div class="card-body pt-0">
+            <div class="row">
+              <div class="col-md-3 mt-2">
+                <label for="txtBrand" class="form-label required">Marca</label>
+                <input type="text" class="form-control" id="txtBrand" placeholder="{{placeholderText}}">
+              </div>
+              <div class="col-md-3 mt-2">
+                <label for="txtModel" class="form-label required">Modelo</label>
+                <input type="text" class="form-control" id="txtModel" placeholder="{{placeholderText}}">
+              </div>
+              
+              
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-sm btn-secondary">Limpiar Formulario</button>&nbsp;
+            <button type="button" class="btn btn-sm btn-primary">Guardar Cambios</button>
+            <br><br>
+          </div>
+        </div>
+
+
+      </div>
+    </form>
   </div>
 </div>
